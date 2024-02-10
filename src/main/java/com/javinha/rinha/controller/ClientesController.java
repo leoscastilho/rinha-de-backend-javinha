@@ -1,7 +1,6 @@
 package com.javinha.rinha.controller;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,18 +12,20 @@ import com.javinha.rinha.model.Clientes;
 import com.javinha.rinha.repository.ClientesRepository;
 
 @RestController
-@RequestMapping("/Clientes")
+@RequestMapping("/clientes")
 public class ClientesController {
+
 	@Autowired
 	private ClientesRepository clientesRepository;
-	
+
+
 	@GetMapping
     public List<Clientes> findAll() {
         return clientesRepository.findAll();
     }
 	
 	@GetMapping("/{id}")
-	public Optional<Clientes> findById(@PathVariable Long id){
-		return clientesRepository.findAllById(id);
+	public Clientes findById(@PathVariable Long id){
+		return clientesRepository.findById(id).orElseThrow();
 	}
 }
