@@ -9,8 +9,8 @@ services:
     environment:
       - DB_HOSTNAME=db
       - PORT=3000
-    ports:
-      - "3001:3000"
+    expose:
+      - 8080
     depends_on:
       - db
     deploy:
@@ -22,11 +22,6 @@ services:
   api02:
     <<: *api
     hostname: api02
-    environment:
-      - DB_HOSTNAME=db
-      - PORT=3000
-    ports:
-      - "3002:3000"
   
   nginx:
     image: nginx:latest
@@ -41,7 +36,7 @@ services:
       resources:
         limits:
           cpus: "0.15"
-          memory: "50MB"
+          memory: "10MB"
 
   db:
     image: postgres:latest

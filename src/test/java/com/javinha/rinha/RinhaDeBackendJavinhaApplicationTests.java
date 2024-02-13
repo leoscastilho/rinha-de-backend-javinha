@@ -11,9 +11,4 @@ class RinhaDeBackendJavinhaApplicationTests {
 	void contextLoads() {
 	}
 
-	@Test
-	public void test (){
-		String c = String.valueOf(TransacaoTipo.CREDITO);
-	}
-
 }
