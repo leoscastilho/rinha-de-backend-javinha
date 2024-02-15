@@ -2,11 +2,8 @@ package com.javinha.rinha.record;
 
 
 public record PostTransacaoRequest(
-
         Integer valor,
-
         String tipo,
-
         String descricao
 ) {
         public boolean isValid () {
